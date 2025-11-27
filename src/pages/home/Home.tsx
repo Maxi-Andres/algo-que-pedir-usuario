@@ -3,19 +3,12 @@ import MediaCard from '../../components/LocalCard/Card'
 import ColorCheckboxes from '../../components/Checkbox'
 import { StoreType } from '../../domain/store'
 import { storeService } from '../../services/LocalesService'
-import { useState} from 'react'
+import { useState } from 'react'
 import { useOnInit } from '../../customHooks/useOnInit'
 import { Toast } from '../../components/Toast/ToastContainer'
 import { useToast } from '../../components/Toast/useToast'
-import {
-  HomeContainer,
-  HeaderContainer,
-  TitleTypography,
-  SearchContainer,
-  ContentBox,
-  StoresCountTypography,
-  CardsContainer
-} from './StyledHome'
+import { Box, Typography, Container } from '@mui/material'
+import './home.css'
 
 const Home = () => {
   const { toast, showToast } = useToast()
@@ -62,39 +55,51 @@ const Home = () => {
   })
 
   return (
-    <HomeContainer data-testid="home-container">
-      {/* Toast Container - USAR LA MISMA FORMA QUE StoreDetail */}
-      {toast && <Toast toast={toast} />}
-      
-      <HeaderContainer>
-        <TitleTypography>
+    <Box className="home-container" data-testid="home-container">
+      {/* ==================== Header ==================== */}
+      <Box className="home-header-container">
+        <Typography variant="h5" className="home-title">
           Delivery
-        </TitleTypography>
-      </HeaderContainer>
+        </Typography>
+      </Box>
       
-      <SearchContainer data-testid="search-container">
+      {/* ==================== Search Bar ==================== */}
+      <Box className="search-bar-container" data-testid="search-container">
         <SearchBar onSearch={buscarStores} searchValue={searchValue} />
-      </SearchContainer>
+      </Box>
       
-      <ContentBox data-testid="content-box">
-        {loading && <div>Cargando...</div>}
-        
-        <ColorCheckboxes 
-          isChecked={isChecked}
-          onCheckboxChange={handleCheckboxChange}
-        />
-        
-        {isChecked && (
-          <StoresCountTypography variant="body2" data-testid="stores-count">
-            Mostrando {stores.length} locales cercanos
-          </StoresCountTypography>
+      {/* ==================== Content ==================== */}
+      <Container className="home-content-container" data-testid="content-box">
+        {loading && (
+          <Typography className="loading-text">Cargando...</Typography>
         )}
         
-        <CardsContainer data-testid="cards-container">
+        {/* ==================== Filter Checkbox ==================== */}
+        <Box className="filter-container">
+          <ColorCheckboxes 
+            isChecked={isChecked}
+            onCheckboxChange={handleCheckboxChange}
+          />
+        </Box>
+        
+        {/* ==================== Store Count ==================== */}
+        {isChecked && (
+          <Typography variant="body2" className="stores-count-text" data-testid="stores-count">
+            Mostrando {stores.length} locales cercanos
+          </Typography>
+        )}
+        
+        {/* ==================== Store Cards ==================== */}
+        <Box className="cards-grid-container" data-testid="cards-container">
           <MediaCard stores={stores} />
-        </CardsContainer>
-      </ContentBox>
-    </HomeContainer>
+        </Box>
+      </Container>
+
+      {/* ==================== Toast ==================== */}
+      <div id="toast-container" data-testid='toast-home-test'>
+        <Toast toast={toast} />
+      </div>
+    </Box>
   )
 }
 

@@ -1,0 +1,77 @@
+/* ==================== Main Container ==================== */
+div.home-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    /* background-color: #fafafa; */
+}
+
+/* ==================== Header ==================== */
+div.home-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 40px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    background-color: #fafafa;
+}
+
+h5.home-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* ==================== Search Bar ==================== */
+div.search-bar-container {
+    padding: 0 16px;
+    margin-top: 10px;
+    /* margin-bottom: 16px; */
+}
+
+/* ==================== Content Container ==================== */
+div.home-content-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* padding: 16px; */
+}
+
+/* ==================== Loading ==================== */
+p.loading-text {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 24px 0;
+    font-size: 1rem;
+}
+
+/* ==================== Filter Container ==================== */
+div.filter-container {
+    margin-bottom: 8px;
+}
+
+/* ==================== Store Count ==================== */
+p.stores-count-text {
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-bottom: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.875rem;
+}
+
+/* ==================== Cards Grid ==================== */
+div.cards-grid-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+}
+
+/* ==================== Toast Container ==================== */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
