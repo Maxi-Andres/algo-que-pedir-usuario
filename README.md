@@ -1,4 +1,81 @@
-# React + TypeScript + Vite
+# Algo Que Pedir — Frontend Usuario
+
+Este proyecto es el frontend del lado del usuario (cliente) para la aplicación **Algo Que Pedir**, un sistema similar a PedidosYa. Permite buscar locales, ver sus menús, realizar pedidos y navegar dentro de la plataforma. Está desarrollado con **React + TypeScript + Vite** y se comunica con un backend REST mediante **axios**.
+
+---
+
+## Tecnologías principales
+
+* React + TypeScript
+* Vite
+* Axios
+* React Router DOM
+* Material UI y estilos propios
+* ESLint
+
+---
+
+## Estructura del proyecto
+
+```
+src/
+ ├── components/       Componentes reutilizables
+ ├── pages/            Páginas principales
+ ├── services/         Llamadas al backend
+ ├── domain/           Tipos y modelos
+ ├── customHooks/      Hooks propios
+ └── main.tsx          Punto de entrada
+```
+
+---
+
+## Relación con otros proyectos
+
+Este frontend funciona junto al:
+
+* Backend de Algo Que Pedir (API REST)
+* Frontend del Local (interfaz para los comercios)
+
+---
+
+## Instalación y ejecución
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Modo desarrollo:
+
+```bash
+npm run dev
+```
+
+Build de producción:
+
+```bash
+npm run build
+```
+
+Previsualización del build:
+
+```bash
+npm run preview
+```
+
+---
+
+## Configuración de entorno
+
+Crear un archivo `.env` con la URL del backend:
+
+```
+VITE_API_URL=http://localhost:9000
+```
+
+---
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -71,4 +148,3 @@ export default defineConfig([
   },
 ])
 ```
-# algo-que-pedir-usuario
